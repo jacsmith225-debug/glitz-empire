@@ -4,10 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gold: "#C5A253",
+        gold: "#D4AF37",
+        dark: "#111111",
+        light: "#FFFFFF",
       },
       fontFamily: {
         luxury: ["Poppins", "sans-serif"],
+      },
+      boxShadow: {
+        gold: "0 4px 10px rgba(212, 175, 55, 0.35)",
       },
     },
   },
