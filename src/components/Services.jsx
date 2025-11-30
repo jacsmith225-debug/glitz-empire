@@ -1,59 +1,60 @@
-function Services() {
+import React from "react";
+import { FaUsers, FaCrown, FaCalendarCheck } from "react-icons/fa";
+
+const Services = () => {
   const services = [
     {
-      title: "Event Ushering",
-      description: "Elegant ushers trained to guide your guests with professionalism and class.",
-      icon: "💼",
+      title: "Professional Ushers",
+      description:
+        "Highly trained ushers providing top-tier hospitality, guest coordination, and event support.",
+      icon: <FaUsers className="text-yellow-600 text-5xl mb-4" />,
     },
     {
-      title: "Wedding Ushers",
-      description: "Beautiful, organized ushers to make your special day flawless.",
-      icon: "💍",
+      title: "Event Management",
+      description:
+        "Complete event planning and coordination to ensure stress-free and successful events.",
+      icon: <FaCalendarCheck className="text-yellow-600 text-5xl mb-4" />,
     },
     {
-      title: "Corporate Event Ushers",
-      description: "Trained ushers for conferences, business meetings, and company events.",
-      icon: "🏢",
-    },
-    {
-      title: "Brand Promotion",
-      description: "Energetic ushers to represent your brand with confidence.",
-      icon: "📢",
-    },
-    {
-      title: "Product Activation",
-      description: "Professional ushers trained to engage customers and promote products.",
-      icon: "🛍️",
-    },
-    {
-      title: "VIP Protocol",
-      description: "Highly trained personnel for VIP and high-profile clients.",
-      icon: "⭐",
+      title: "Luxury Brand Ambassadors",
+      description:
+        "Representing your brand with elegance, confidence, and exceptional communication.",
+      icon: <FaCrown className="text-yellow-600 text-5xl mb-4" />,
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <h2 className="text-4xl font-bold text-center text-gold mb-10">
-        Our Services
-      </h2>
+    <section id="services" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* Section Heading */}
+        <h2 className="text-4xl font-bold text-gray-800 mb-6">
+          Our Premium Services
+        </h2>
+        <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
+          At Glitz Empire, we provide top-notch event and marketing solutions
+          designed to elevate your event experience and brand image.
+        </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-20">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300"
-          >
-            <div className="text-5xl mb-4">{service.icon}</div>
-            <h3 className="text-2xl font-semibold text-gray-800">
-              {service.title}
-            </h3>
-            <p className="text-gray-600 mt-2">{service.description}</p>
-          </div>
-        ))}
+        {/* Service Cards */}
+        <div className="grid md:grid-cols-3 gap-10">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-lg rounded-xl p-8 hover:shadow-2xl transition duration-300"
+            >
+              <div className="flex justify-center">{service.icon}</div>
+              <h3 className="text-2xl font-semibold text-gray-800 mt-4 mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
 
 export default Services;

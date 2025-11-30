@@ -1,34 +1,32 @@
-function Hero() {
+import React from "react";
+
+const Hero = () => {
   return (
-    <section
-      className="relative h-screen w-full bg-cover bg-center flex items-center justify-center"
+    <div
+      className="relative h-[80vh] flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1600&q=80')",
+          "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')",
       }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
       {/* Content */}
-      <div className="relative text-center px-6">
-        <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
-          Welcome to{" "}
-          <span className="text-gold">
-            Glitz Empire Ushering & Marketing Agency
-          </span>
+      <div className="relative text-center text-white px-6">
+        <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">
+          Welcome to Glitz Empire Ushering & Marketing Agency
         </h1>
-
-        <p className="text-white text-lg md:text-xl mt-4 drop-shadow-lg">
+        <p className="text-xl mb-6 drop-shadow-md">
           Professional. Elegant. Reliable. Your event deserves the best.
         </p>
 
-        <button className="mt-8 bg-gold text-white px-6 py-3 text-lg rounded-full shadow-lg hover:opacity-90">
+        <a href="#contact" className="btn-primary">
           Book Us Now
-        </button>
+        </a>
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default Hero;
