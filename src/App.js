@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -8,30 +9,13 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="font-luxury">
-
+    <div className="App bg-gray-50">
       <Navbar />
-
-      <section id="home">
-        <Hero />
-      </section>
-
-      <section id="services">
-        <Services />
-      </section>
-
-      <section id="gallery">
-        <Gallery />
-      </section>
-
-      <section id="pricing">
-        <Pricing />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
-
+      <Hero />
+      <Services />
+      <Gallery />
+      <Pricing />
+      <Contact />
       <Footer />
     </div>
   );

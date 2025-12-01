@@ -1,48 +1,62 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-// Import your images
-import usher1 from "../assets/images/usher1.jpeg";
-import usher2 from "../assets/images/usher2.jpeg";
-import usher3 from "../assets/images/usher3.jpeg";
-import usher4 from "../assets/images/usher4.jpeg";
-import usher5 from "../assets/images/usher5.jpeg";
-import usher6 from "../assets/images/usher6.jpeg";
-import usher7 from "../assets/images/usher7.jpeg";
-import usher8 from "../assets/images/usher8.jpeg";
-import usher9 from "../assets/images/usher9.jpeg";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Gallery = () => {
-  const images = [
-    usher1,
-    usher2,
-    usher3,
-    usher4,
-    usher5,
-    usher6,
-    usher7,
-    usher8,
-    usher9,
-  ];
+  useEffect(() => {
+    AOS.init({ duration: 800, once: false });
+  }, []);
+
+  // Auto-load images from assets/images
+  const importImages = () => {
+    const images = require.context("../assets/images", false, /\.(png|jpe?g)$/i);
+    return images.keys().map(images);
+  };
+
+  const galleryImages = importImages();
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-10">
-          Our Ushering Gallery
-        </h2>
+    <section id="gallery" className="section-container pt-32">
+      {/* Premium Gold Title */}
+      <h2
+        className="text-4xl font-extrabold text-center text-yellow-600 mb-6"
+        data-aos="fade-down"
+      >
+        Event Highlights
+      </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.map((img, index) => (
-            <div key={index} className="overflow-hidden rounded-xl shadow-lg">
-              <img
-                src={img}
-                alt={`Usher ${index + 1}`}
-                className="w-full h-64 object-cover transform transition duration-300 hover:scale-110"
-              />
+      {/* Underline */}
+      <div
+        className="w-32 h-1 bg-yellow-500 mx-auto rounded-full mb-12"
+        data-aos="fade-down"
+        data-aos-delay="150"
+      ></div>
+
+      <PhotoProvider>
+        <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+          {galleryImages.map((img, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-xl shadow-lg bg-white border border-yellow-300 
+                         hover:border-yellow-500 transition-all duration-300 cursor-pointer 
+                         hover:shadow-[0_0_25px_rgba(255,204,0,0.6)] hover:scale-[1.03]"
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
+            >
+              <PhotoView src={img}>
+                <img
+                  src={img}
+                  alt={`Event ${index + 1}`}
+                  className="w-full rounded-xl transition duration-500 hover:brightness-110"
+                />
+              </PhotoView>
             </div>
           ))}
         </div>
-      </div>
+      </PhotoProvider>
     </section>
   );
 };

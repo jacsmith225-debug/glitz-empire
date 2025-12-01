@@ -1,30 +1,183 @@
+/* ---------------------------------------------------
+   Tailwind Base
+--------------------------------------------------- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global Styles */
+/* ---------------------------------------------------
+   Global Styles
+--------------------------------------------------- */
 body {
   @apply bg-gray-50 text-gray-800 antialiased;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Container Standard */
+/* Smooth Everything */
+* {
+  @apply transition-all duration-300;
+}
+
+/* Luxury Gold Theme */
+:root {
+  --gold: #d4af37;
+  --gold-hover: #b8952d;
+  --deep-dark: #111111;
+}
+
+/* ---------------------------------------------------
+   Containers
+--------------------------------------------------- */
 .section-container {
-  @apply max-w-6xl mx-auto px-6 py-20;
+  @apply max-w-7xl mx-auto px-6 py-20;
 }
 
-/* Title Styling */
+/* ---------------------------------------------------
+   Typography
+--------------------------------------------------- */
 .section-title {
-  @apply text-4xl font-bold text-center mb-10 text-gray-900;
+  @apply text-4xl md:text-5xl font-extrabold text-center mb-10 text-gray-900;
 }
 
-/* Button Styling */
+/* Highlight Text (Professional Look) */
+.highlight-gold {
+  color: var(--gold);
+}
+
+/* ---------------------------------------------------
+   Buttons
+--------------------------------------------------- */
 .btn-primary {
-  @apply bg-yellow-500 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-yellow-600 transition duration-300;
+  @apply px-8 py-3 text-white font-semibold rounded-full shadow-lg;
+  background: var(--gold);
+}
+
+.btn-primary:hover {
+  background: var(--gold-hover);
 }
 
 .btn-outline {
-  @apply border border-yellow-500 text-yellow-600 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-500 hover:text-white transition duration-300;
+  @apply px-8 py-3 rounded-full font-semibold border shadow-md;
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
-/* Card Shadow*
+.btn-outline:hover {
+  background: var(--gold);
+  color: white;
+}
+
+/* ---------------------------------------------------
+   Custom Shadows
+--------------------------------------------------- */
+.shadow-gold {
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Premium Glow (Used for Hero Images) */
+.glow-gold {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5),
+              0 0 50px rgba(212, 175, 55, 0.25);
+}
+
+/* ---------------------------------------------------
+   Floating Animations (Luxury Image Cluster)
+--------------------------------------------------- */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatLarge {
+  0%, 100% { transform: translateY(0); rotate: -1deg; }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: floatMedium 4s ease-in-out infinite;
+}
+
+.animate-float-large {
+  animation: floatLarge 6s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------
+   Scroll Reveal Animations
+--------------------------------------------------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeInUp 0.9s ease-out forwards;
+}
+
+.reveal.delay-1 { animation-delay: 0.2s; }
+.reveal.delay-2 { animation-delay: 0.4s; }
+.reveal.delay-3 { animation-delay: 0.6s; }
+
+/* ---------------------------------------------------
+   Decorative Separators
+--------------------------------------------------- */
+.section-divider {
+  @apply w-24 h-1 rounded-full mx-auto mb-10;
+  background: var(--gold);
+}
+
+/* ---------------------------------------------------
+   Cards
+--------------------------------------------------- */
+.card {
+  @apply bg-white rounded-2xl p-6 shadow-soft;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* ---------------------------------------------------
+   Images (Luxury Sizing)
+--------------------------------------------------- */
+.hero-img-main {
+  @apply w-64 md:w-80 rounded-xl shadow-gold glow-gold animate-float-large;
+}
+
+.hero-img-side {
+  @apply w-40 md:w-48 rounded-xl shadow-soft animate-float-medium;
+}
+
+.hero-img-small {
+  @apply w-36 md:w-44 rounded-xl shadow-soft animate-float-slow;
+}
+
+/* ---------------------------------------------------
+   Navigation
+--------------------------------------------------- */
+.navbar-blur {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ---------------------------------------------------
+   Footer
+--------------------------------------------------- */
+.footer-text {
+  @apply text-gray-500 text-sm;
+}
