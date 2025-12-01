@@ -1,4 +1,6 @@
 import React from "react";
+
+// UPDATED IMPORT PATHS — all inside src/assets/images/
 import usher35 from "../assets/images/usher35.PNG";
 import usher44 from "../assets/images/usher44.jpeg";
 import usher29 from "../assets/images/usher29.JPG";
@@ -20,7 +22,7 @@ const Hero = () => {
             Professional. Elegant. Reliable. Turning every event into a memorable experience.
           </p>
 
-          {/* CTA */}
+          {/* CTA BUTTON */}
           <button className="bg-gold text-white font-semibold px-10 py-3 rounded-full shadow-gold hover:bg-[#b8952d] transition duration-300">
             Book Us Now
           </button>
