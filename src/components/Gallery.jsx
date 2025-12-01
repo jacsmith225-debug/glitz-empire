@@ -6,7 +6,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
 // ⭐⭐ IMPORT ALL IMAGES MANUALLY (VERCEL SAFE) ⭐⭐
-import usher1 from "../assets/images/usher1.jpg";
+import usher1 from "../assets/images/usher1.jpeg";
 import usher2 from "../assets/images/usher2.jpg";
 import usher3 from "../assets/images/usher3.jpg";
 import usher4 from "../assets/images/usher4.jpg";
