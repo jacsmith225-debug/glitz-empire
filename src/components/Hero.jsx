@@ -1,9 +1,9 @@
 import React from "react";
 
 // UPDATED IMPORT PATHS — all inside src/assets/images/
-import usher35 from "../assets/images/usher35.PNG";
+import usher35 from "../assets/images/usher35.jpeg";
 import usher44 from "../assets/images/usher44.jpeg";
-import usher29 from "../assets/images/usher29.JPG";
+import usher29 from "../assets/images/usher29.jpeg";
 
 const Hero = () => {
   return (
